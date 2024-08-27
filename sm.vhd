@@ -147,13 +147,15 @@ process_game_score : process (rst, clk, inc_g, u_game_score) begin
         if ( (rst = '1')) then
             u_game_score <= (others => '0');
         elsif (inc_g = '1') then
-            if (u_game_score = 6) then 
+            if (u_game_score >= 6) then 
                 u_game_score <= (others => '0');
             else
                 u_game_score <= u_game_score + 1;
+            end if; 
         end if;
     end if;
         
 end process;
 
 end Behavioral;
+
